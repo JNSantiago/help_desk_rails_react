@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  title: MyString
+  description: MyText
+  close_data: 2018-06-15 17:41:50
+  ticket_status: one
+  caller: 1
+  agent: 1
+  service: one
+  sub_service: one
+  organization: one
+  status: false
+
+two:
+  code: MyString
+  title: MyString
+  description: MyText
+  close_data: 2018-06-15 17:41:50
+  ticket_status: two
+  caller: 1
+  agent: 1
+  service: two
+  sub_service: two
+  organization: two
+  status: false
