@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from './template/header'
 import './template/templateAssets'
 import Dashboard from './main/dashboard/dashboard'
+import Ticket from './main/tickets/tickets';
 
 class App extends Component {
     render() {
@@ -14,6 +15,7 @@ class App extends Component {
                         <Router>
                             <Switch>
                                 <Route exact path='/' component={Dashboard}/>
+                                <Route exact path='/ticket' component={Ticket}/>
                             </Switch>
                         </Router>
                     </div>

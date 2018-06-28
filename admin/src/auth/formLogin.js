@@ -22,7 +22,7 @@ class FormLogin extends Component {
                 <div className="form-group ">
                     <div className="col-xs-12">
                         <div className="checkbox checkbox-custom">
-                            <Field id="checkbox-signup" component="input" type="checkbox" />
+                            <Field id="checkbox-signup" name="required" component="input" type="checkbox" />
                             <label htmlFor="checkbox-signup">
                                 Remember me
                             </label>

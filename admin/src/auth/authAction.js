@@ -12,7 +12,10 @@ function submit (values, url) {
     return dispatch => {
         axios.post(url, values)
             .then(resp => {
-                dispatch({type: 'USER_FETCHED', payload: resp})
+                let user = {
+                    'email': resp.data.data.email
+                }
+                dispatch({type: 'USER_FETCHED', payload: user})
             })
             .catch(e => {
                 dispatch({type: 'USER_FETCHED_ERROR', payload: false})

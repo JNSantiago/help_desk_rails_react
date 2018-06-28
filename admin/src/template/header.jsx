@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import DropdownProfile from './../main/utils/dropdownProfile'
 
 class Header extends Component {
     render() {
@@ -9,7 +10,7 @@ class Header extends Component {
                 <div className="logo">
                     <a href="index.html" className="logo">
                         <span className="logo-small"><i className="mdi mdi-radar"></i></span>
-                        <span className="logo-large"><i className="mdi mdi-radar"></i> Adminto</span>
+                        <span className="logo-large"><i className="mdi mdi-radar"></i>Adminto</span>
                     </a>
                     <a href="index.html" className="logo">
                         <img src="assets/images/logo-sm.png" alt="" height="26" className="logo-small" />
@@ -55,27 +56,7 @@ class Header extends Component {
                             </div>
                         </li>
 
-                        <li className="dropdown notification-list">
-                            <a className="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="false" aria-expanded="false">
-                                <img src="assets/images/users/avatar-1.jpg" alt="user" className="rounded-circle" />
-                            </a>
-                            <div className="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                <a href="javascript:void(0);" className="dropdown-item notify-item">
-                                    <i className="ti-user m-r-5"></i> Profile
-                                </a>
-                                <a href="javascript:void(0);" className="dropdown-item notify-item">
-                                    <i className="ti-settings m-r-5"></i> Settings
-                                </a>
-                                <a href="javascript:void(0);" className="dropdown-item notify-item">
-                                    <i className="ti-lock m-r-5"></i> Lock screen
-                                </a>
-                                <a href="javascript:void(0);" className="dropdown-item notify-item">
-                                    <i className="ti-power-off m-r-5"></i> Logout
-                                </a>
-
-                            </div>
-                        </li>
+                        <DropdownProfile />
 
                     </ul>
                 </div>
