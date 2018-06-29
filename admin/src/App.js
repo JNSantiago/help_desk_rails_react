@@ -12,12 +12,8 @@ class App extends Component {
                 <Header />
                 <div className="wrapper">
                     <div className="container-fluid">
-                        <Router>
-                            <Switch>
-                                <Route exact path='/' component={Dashboard}/>
-                                <Route exact path='/ticket' component={Ticket}/>
-                            </Switch>
-                        </Router>
+                        <Route exact path='/' component={Dashboard}/>
+                        <Route exact path='/ticket' component={Ticket}/>
                     </div>
                 </div>
             </div>
