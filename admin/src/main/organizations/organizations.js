@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import Title from './../utils/title'
 
-import { search } from './organizationActions'
+import { search, remove } from './organizationActions'
 
 class Organization extends Component {
     constructor(props) {
@@ -60,6 +60,10 @@ class Organization extends Component {
                                 <td>{ 
                                     organization.status ? <span class="badge badge-success">Ativo</span> : <span class="badge badge-danger">Inativo</span> }</td>
                                 <td>{ organization.created_at }</td>
+                                <td>
+                                    <button className="btn btn-icon waves-effect btn-default m-b-5"> <i className="fa fa-edit"></i> </button>
+                                    <button className="btn btn-icon waves-effect btn-danger m-b-5" onClick={ () => this.props.remove(organization.id) }> <i className="fa fa-trash"></i> </button>
+                                </td>
                             </tr>
                         ))}
                         </tbody>
@@ -71,6 +75,6 @@ class Organization extends Component {
 }
 
 const mapStateToProps = state => ({ list: state.organizationReducer.list })
-const mapDispatchToProps = dispatch => bindActionCreators({ search }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ search, remove }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Organization)

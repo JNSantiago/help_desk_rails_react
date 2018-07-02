@@ -21,9 +21,11 @@ export const add = (values) => {
     }
 }
 
-function redirect(path) {
-    return {
-        type: 'REDIRECT_URL',
-        payload: path
+export const remove = (id) => {
+    return dispatch => {
+        axios.delete(`http://localhost:3000/api/v1/admin/organizations/${id}`)
+            .then(resp => {
+                toastr.success('Sucesso', 'Organização excluída com sucesso!')
+            })
     }
 }
