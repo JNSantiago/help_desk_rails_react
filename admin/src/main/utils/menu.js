@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MegaMenu from './megaMenu';
 import SubMenu from './subMenu';
 import { Link } from 'react-router-dom'
+import ItemSubMenu from './itemSubMenu'
 
 class Menu extends Component {
     render() {
@@ -13,12 +14,18 @@ class Menu extends Component {
                     </li>
                     <li className="has-submenu">
                         <Link to="/ticket"><i className="mdi mdi-invert-colors"></i> <span> Tickets </span> </Link>
-                        <MegaMenu />
+                    </li>
+
+                    <li className="has-submenu">
+                        <Link to="/services"><i className="mdi mdi-texture"></i><span> Serviços </span> </Link>
+                    </li>
+
+                    <li className="has-submenu">
+                        <Link to="/organizations"><i className="mdi mdi-texture"></i><span> Organizações </span> </Link>
                     </li>
 
                     <li className="has-submenu">
                         <Link to="/ticket"><i className="mdi mdi-texture"></i><span> Operadores </span> </Link>
-                        <SubMenu />
                     </li>
                 </ul>
             </div>

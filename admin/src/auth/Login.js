@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom'
 
 import { login } from './authAction';
 import LoginForm from './formLogin'
 
 class Login extends Component {
     render() {
+        const { tokenValid } = this.props
+        
         return(
             <div>
+            { tokenValid ? <Redirect to="/" /> :'' } 
             <div className="account-pages"></div>
             <div className="clearfix"></div>
             <div className="wrapper-page">
@@ -33,5 +37,6 @@ class Login extends Component {
     }
 }
 
+const mapStateToProps = store => ({ tokenValid: store.auth.validToken });
 const mapDispatchToProps = dispatch => bindActionCreators({ login }, dispatch);
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
