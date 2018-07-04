@@ -4,7 +4,7 @@ class Api::V1::Admin::ServicesController < Api::V1::Admin::AdminController
 	end
 
 	def create
-		respond_with :api, :v1, Service.create(service_params)
+		respond_with :api, :v1, :admin, Service.create(service_params)
 	end
 
 	def destroy

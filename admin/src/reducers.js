@@ -4,10 +4,12 @@ import { combineReducers } from 'redux';
 import { reducer as toastrReducer } from 'react-redux-toastr'
 
 import { organizationReducer } from './main/organizations/organizationReducer';
+import { serviceReducer } from './main/services/serviceReducer';
 
 export const Reducers = combineReducers({
     auth: authReducer,
     form: formReducer,
     toastr: toastrReducer,
-    organizationReducer: organizationReducer
+    organizationReducer: organizationReducer,
+    serviceReducer: serviceReducer
 });

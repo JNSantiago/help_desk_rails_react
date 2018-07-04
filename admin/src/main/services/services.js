@@ -1,12 +1,28 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Title from './../utils/title'
 
+import { search, remove } from './serviceActions'
+
 class Service extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentWillMount() {
+        this.props.search()
+    }
+
     render() {
+        const list = this.props.list || []
         return(
             <div className="service">
                 <div>
+                    <div className="btn-group pull-right m-t-20">
+                        <a href="/service/new" className="btn btn-custom waves-effect waves-light">Cadastrar </a>
+                    </div>
                     <Title title="Todos os Serviços" />
                 </div>
 
@@ -30,19 +46,24 @@ class Service extends Component {
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Código</th>
-                            <th>Título</th>
+                            <th>#</th>
+                            <th>Nome</th>
                             <th>Descrição</th>
                             <th>Criado em</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
+                        { list.map(service => (
+                            <tr key={service.id}>
+                                <th scope="row">{ service.id }</th>
+                                <td>{ service.name }</td>
+                                <td>{ service.description }</td>
+                                <td>
+                                    <button className="btn btn-icon waves-effect btn-default m-b-5"> <i className="fa fa-edit"></i> </button>
+                                    <button className="btn btn-icon waves-effect btn-danger m-b-5" onClick={ () => this.props.remove(service.id) }> <i className="fa fa-trash"></i> </button>
+                                </td>
+                            </tr>
+                        ))}
                         </tbody>
                     </table>
                 </div>
@@ -51,4 +72,7 @@ class Service extends Component {
     }
 }
 
-export default Service
+const mapStateToProps = state => ({ list: state.serviceReducer.list })
+const mapDispatchToProps = dispatch => bindActionCreators({ search, remove }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Service)
