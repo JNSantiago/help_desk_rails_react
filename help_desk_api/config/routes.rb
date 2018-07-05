@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 			namespace :admin do
 				resources :tickets, only: [:index, :create, :destroy, :update]
 				resources :services, only: [:index, :create, :destroy, :update]
+				resources :sub_services, only: [:index, :create, :destroy, :update]
 				resources :organizations, only: [:index, :create, :destroy, :update]
 			end
 		end

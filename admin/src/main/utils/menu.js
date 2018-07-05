@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import MegaMenu from './megaMenu';
-import SubMenu from './subMenu';
 import { Link } from 'react-router-dom'
-import ItemSubMenu from './itemSubMenu'
 
 class Menu extends Component {
     render() {
@@ -18,6 +15,10 @@ class Menu extends Component {
 
                     <li className="has-submenu">
                         <Link to="/services"><i className="mdi mdi-texture"></i><span> Serviços </span> </Link>
+                    </li>
+
+                    <li className="has-submenu">
+                        <Link to="/sub_services"><i className="mdi mdi-texture"></i><span> Sub Serviços </span> </Link>
                     </li>
 
                     <li className="has-submenu">
