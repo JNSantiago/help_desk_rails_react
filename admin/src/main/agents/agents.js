@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 
 import Title from './../utils/title'
 
-class Ticket extends Component {
+class Agents extends Component {
     render() {
         return(
             <div className="ticket">
                 <div>
-                    <Title title="Todos os Tickets" />
+                    <Title title="Todos os Agentes" />
                 </div>
 
                 <div class="card-box">
@@ -31,11 +31,7 @@ class Ticket extends Component {
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Código</th>
-                                    <th>Descrição</th>
-                                    <th>Status</th>
-                                    <th>Solicitante</th>
-                                    <th>Agente</th>
+                                    <th>Email</th>
                                     <th>Criado em</th>
                                 </tr>
                                 </thead>
@@ -54,4 +50,4 @@ class Ticket extends Component {
     }
 }
 
-export default Ticket
+export default Agents

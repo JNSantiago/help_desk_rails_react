@@ -26,7 +26,7 @@ class Menu extends Component {
                     </li>
 
                     <li className="has-submenu">
-                        <Link to="/ticket"><i className="mdi mdi-texture"></i><span> Operadores </span> </Link>
+                        <Link to="/agents"><i className="mdi mdi-texture"></i><span> Operadores </span> </Link>
                     </li>
                 </ul>
             </div>

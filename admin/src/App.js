@@ -10,6 +10,7 @@ import NewOrganization from './main/organizations/newOrganization'
 import newService from './main/services/newService'
 import SubService from './main/subServices/subServices'
 import newSubService from './main/subServices/newSubService'
+import Agents from './main/agents/agents';
 
 class App extends Component {
     render() {
@@ -26,6 +27,7 @@ class App extends Component {
                         <Route exact path='/sub_services/new' component={newSubService}/>
                         <Route exact path='/organizations' component={Organizations}/>
                         <Route exact path='/organization/new' component={NewOrganization}/>
+                        <Route exact path='/agents' component={Agents}/>
                     </div>
                 </div>
             </div>
