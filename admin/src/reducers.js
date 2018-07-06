@@ -7,6 +7,7 @@ import { organizationReducer } from './main/organizations/organizationReducer'
 import { serviceReducer } from './main/services/serviceReducer'
 import { subServiceReducer } from './main/subServices/subServiceReducer'
 import { agentReducer } from './main/agents/agentReducer'
+import { ticketReducer } from './main/tickets/ticketReducer'
 
 export const Reducers = combineReducers({
     auth: authReducer,
@@ -15,5 +16,6 @@ export const Reducers = combineReducers({
     organizationReducer: organizationReducer,
     serviceReducer: serviceReducer,
     subServiceReducer: subServiceReducer,
-    agentReducer: agentReducer
+    agentReducer: agentReducer,
+    ticketReducer: ticketReducer
 });

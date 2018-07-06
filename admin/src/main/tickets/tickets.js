@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Title from './../utils/title'
+
+import { search, remove } from './ticketActions'
 
 class Ticket extends Component {
     render() {
         return(
             <div className="ticket">
                 <div>
+                    <div className="btn-group pull-right m-t-20">
+                        <a href="/ticket/new" className="btn btn-custom waves-effect waves-light">Cadastrar </a>
+                    </div>
                     <Title title="Todos os Tickets" />
                 </div>
 
@@ -54,4 +61,7 @@ class Ticket extends Component {
     }
 }
 
-export default Ticket
+const mapStateToProps = state => ({ list: state.serviceReducer.list })
+const mapDispatchToProps = dispatch => bindActionCreators({ search, remove }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Ticket)

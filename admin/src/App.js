@@ -10,8 +10,9 @@ import NewOrganization from './main/organizations/newOrganization'
 import newService from './main/services/newService'
 import SubService from './main/subServices/subServices'
 import newSubService from './main/subServices/newSubService'
-import Agents from './main/agents/agents';
-import newAgent from './main/agents/newAgent';
+import Agents from './main/agents/agents'
+import newAgent from './main/agents/newAgent'
+import newTicket from './main/tickets/newTicket'
 
 class App extends Component {
     render() {
@@ -22,6 +23,7 @@ class App extends Component {
                     <div className="container-fluid">
                         <Route exact path='/' component={Dashboard}/>
                         <Route exact path='/ticket' component={Ticket}/>
+                        <Route exact path='/ticket/new' component={newTicket}/>
                         <Route exact path='/services' component={Services}/>
                         <Route exact path='/service/new' component={newService}/>
                         <Route exact path='/sub_services' component={SubService}/>
