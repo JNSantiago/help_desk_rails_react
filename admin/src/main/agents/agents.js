@@ -1,12 +1,28 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Title from './../utils/title'
 
+import { search, remove } from './agentActions'
+
 class Agents extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentWillMount() {
+        this.props.search()
+    }
+
     render() {
+        const list = this.props.list || []
         return(
             <div className="ticket">
                 <div>
+                    <div className="btn-group pull-right m-t-20">
+                        <a href="/agent/new" className="btn btn-custom waves-effect waves-light">Cadastrar </a>
+                    </div>
                     <Title title="Todos os Agentes" />
                 </div>
 
@@ -36,12 +52,17 @@ class Agents extends Component {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
+                                { list.map(agent => (
+                                    <tr key={agent.id}>
+                                        <th scope="row">{ agent.id }</th>
+                                        <td>{ agent.email }</td>
+                                        <td>{ agent.created_at }</td>
+                                        <td>
+                                            <button className="btn btn-icon waves-effect btn-default m-b-5"> <i className="fa fa-edit"></i> </button>
+                                            <button className="btn btn-icon waves-effect btn-danger m-b-5" onClick={ () => this.props.remove(agent.id) }> <i className="fa fa-trash"></i> </button>
+                                        </td>
+                                    </tr>
+                                ))}
                                 </tbody>
                             </table>
                         </div>
@@ -50,4 +71,7 @@ class Agents extends Component {
     }
 }
 
-export default Agents
+const mapStateToProps = state => ({ list: state.agentReducer.list })
+const mapDispatchToProps = dispatch => bindActionCreators({ search, remove }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Agents)

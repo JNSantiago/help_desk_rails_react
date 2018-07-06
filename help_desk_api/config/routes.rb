@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 				resources :services, only: [:index, :create, :destroy, :update]
 				resources :sub_services, only: [:index, :create, :destroy, :update]
 				resources :organizations, only: [:index, :create, :destroy, :update]
+				resources :agents, only: [:index]
 			end
 		end
 	end
