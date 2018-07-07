@@ -1,5 +1,5 @@
 class Api::V1::Admin::TicketsController < Api::V1::Admin::AdminController
-	def index
+	def index	
 		respond_with Ticket.all
 	end
 

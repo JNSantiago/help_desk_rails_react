@@ -5,10 +5,31 @@ import { bindActionCreators } from 'redux'
 import Title from './../utils/title'
 import AgentForm from './ticketForm';
 
-import { add } from './ticketActions'
+import { 
+    add, 
+    searchServices, 
+    searchSubServices, 
+    searchOrganizations,
+    searchAgents
+} from './ticketActions'
 
 class NewTicket extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentWillMount() {
+        this.props.searchServices()
+        this.props.searchSubServices()
+        this.props.searchOrganizations()
+        this.props.searchAgents()
+    }
+    
     render() {
+        const listServices = this.props.listServices || []
+        const listSubServices = this.props.listSubServices || []
+        const listOrganizations = this.props.listOrganizations || []
+        const listAgents = this.props.listAgents || []
         return (
             <div className="newOrganization">
                 <div>
@@ -21,7 +42,13 @@ class NewTicket extends Component {
                             <div className="row">
                                 <div className="col-12">
                                     <div className="p-20">
-                                        <AgentForm onSubmit={ this.props.add } />
+                                        <AgentForm 
+                                            listServices={listServices} 
+                                            listSubServices={listSubServices}
+                                            listOrganizations={listOrganizations}
+                                            listAgents={listAgents}
+                                            onSubmit={ this.props.add } 
+                                        />
                                     </div>
                                 </div>
 
@@ -35,6 +62,21 @@ class NewTicket extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ add }, dispatch)
+const mapStateToProps = state => (
+    { 
+        listServices: state.ticketReducer.listServices,
+        listSubServices: state.ticketReducer.listSubServices,
+        listOrganizations: state.ticketReducer.listOrganizations,
+        listAgents: state.ticketReducer.listAgents
+    }
+)
+const mapDispatchToProps = dispatch => bindActionCreators(
+    { 
+        add, 
+        searchServices, 
+        searchSubServices,
+        searchOrganizations,
+        searchAgents
+    }, dispatch)
 
-export default connect(null, mapDispatchToProps)(NewTicket)
+export default connect(mapStateToProps, mapDispatchToProps)(NewTicket)
