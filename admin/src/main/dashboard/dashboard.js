@@ -10,10 +10,10 @@ class Dashboard extends Component {
                     <Title title="Dashboard" />
                 </div>
                 <div className="row">
-                    <Item />
-                    <Item />
-                    <Item />
-                    <Item />
+                    <Item title="Abertos" number="256" today="56" />
+                    <Item title="Fechados" number="1425" today="52" />
+                    <Item title="Agentes" number="23" today="0" />
+                    <Item title="Clientes" number="62" today="1" />
                 </div>
             </div>
         )

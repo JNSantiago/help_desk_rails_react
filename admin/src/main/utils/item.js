@@ -44,18 +44,31 @@ class Item extends Component {
                         </div>
                     </div>
 
-                    <h4 className="header-title mt-0 m-b-30">Total Revenue</h4>
+                    <h4 className="header-title mt-0 m-b-30">{this.props.title}</h4>
 
                     <div className="widget-chart-1">
                         <div className="widget-chart-box-1">
                             <div style={divStyle}>
-                            <canvas width="80" height="80"></canvas>
-                            <input data-plugin="knob" data-width="80" data-height="80" data-fgcolor="#f05050 " data-bgcolor="#F9B9B9" value="58" data-skin="tron" data-angleoffset="180" data-readonly="true" data-thickness=".15" readonly="readonly" style={inputSyle} /></div>
+                                <canvas width="80" height="80"></canvas>
+                                <input 
+                                    data-plugin="knob" 
+                                    data-width="80" 
+                                    data-height="80" 
+                                    data-fgcolor="#f05050 " 
+                                    data-bgcolor="#F9B9B9" 
+                                    value={this.props.number} 
+                                    data-skin="tron" 
+                                    data-angleoffset="180" 
+                                    data-readonly="true" 
+                                    data-thickness=".15" 
+                                    readonly="readonly" 
+                                    style={inputSyle} />
+                            </div>
                         </div>
 
                         <div className="widget-detail-1">
-                            <h2 className="p-t-10 mb-0"> 256 </h2>
-                            <p className="text-muted m-b-10">Revenue today</p>
+                            <h2 className="p-t-10 mb-0">{this.props.today}</h2>
+                            <p className="text-muted m-b-10">Adicionados Hoje</p>
                         </div>
                     </div>
                 </div>

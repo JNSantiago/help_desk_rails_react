@@ -10,7 +10,7 @@ class Menu extends Component {
                         <Link to="/"><i className="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </Link>
                     </li>
                     <li className="has-submenu">
-                        <Link to="/ticket"><i className="mdi mdi-invert-colors"></i> <span> Tickets </span> </Link>
+                        <Link to="/tickets"><i className="mdi mdi-invert-colors"></i> <span> Tickets </span> </Link>
                     </li>
 
                     <li className="has-submenu">

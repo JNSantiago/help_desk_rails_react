@@ -43,6 +43,7 @@ class TicketForm extends Component {
                     <label className="col-2 col-form-label">Agente</label>
                     <div className="col-10">
                         <Field className="form-control" component="select" name="agent">
+                        <option>Selecione um agente</option>
                         { listAgents.map(agent => (
                             <option value={agent.id}>{ agent.email }</option>
                         ))}
@@ -54,6 +55,7 @@ class TicketForm extends Component {
                     <label className="col-2 col-form-label">Serviço</label>
                     <div className="col-10">
                         <Field className="form-control" component="select" name="service_id">
+                        <option>Selecione um serviço</option>
                         { listServices.map(service => (
                             <option value={service.id}>{ service.name }</option>
                         ))}
@@ -65,6 +67,7 @@ class TicketForm extends Component {
                     <label className="col-2 col-form-label">Sub Serviço</label>
                     <div className="col-10">
                         <Field className="form-control" component="select" name="sub_service_id">
+                        <option>Selecione um subserviço</option>
                         { listSubServices.map(sub_service => (
                             <option value={sub_service.id}>{ sub_service.name }</option>
                         ))}
@@ -76,6 +79,7 @@ class TicketForm extends Component {
                     <label className="col-2 col-form-label">Organização</label>
                     <div className="col-10">
                         <Field className="form-control" component="select" name="organization_id">
+                        <option>Selecione uma organização</option>
                         { listOrganizations.map(organization => (
                             <option value={organization.id}>{ organization.name }</option>
                         ))}
@@ -86,9 +90,10 @@ class TicketForm extends Component {
                 <div className="form-group row">
                     <label className="col-2 col-form-label">Status</label>
                     <div className="col-10">
-                        <Field className="form-control" component="select" name="status">
-                            <option value="1">ativo</option>
-                            <option value="0">inativo</option>
+                        <Field className="form-control" component="select" name="ticket_status_id">
+                            <option>Selecione um status</option>
+                            <option value="1">Aberto</option>
+                            <option value="2">Pendente</option>
                         </Field>
                     </div>
                 </div>

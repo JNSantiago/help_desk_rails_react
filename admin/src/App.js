@@ -22,7 +22,7 @@ class App extends Component {
                 <div className="wrapper">
                     <div className="container-fluid">
                         <Route exact path='/' component={Dashboard}/>
-                        <Route exact path='/ticket' component={Ticket}/>
+                        <Route exact path='/tickets' component={Ticket}/>
                         <Route exact path='/ticket/new' component={newTicket}/>
                         <Route exact path='/services' component={Services}/>
                         <Route exact path='/service/new' component={newService}/>

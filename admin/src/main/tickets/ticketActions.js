@@ -6,7 +6,7 @@ import history from './../utils/history'
 export const search = () => {
     const request = axios.get('http://localhost:3000/api/v1/admin/tickets.json')
     return {
-        type: 'TICKETS_ALL',
+        type: 'TICKET_ALL',
         payload: request
     }
 }

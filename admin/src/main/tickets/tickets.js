@@ -7,7 +7,12 @@ import Title from './../utils/title'
 import { search, remove } from './ticketActions'
 
 class Ticket extends Component {
+    componentWillMount() {
+        this.props.search()
+    }
+
     render() {
+        const list = this.props.list || []
         return(
             <div className="ticket">
                 <div>
@@ -17,51 +22,60 @@ class Ticket extends Component {
                     <Title title="Todos os Tickets" />
                 </div>
 
-                <div class="card-box">
-                            <div class="dropdown pull-right">
-                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="mdi mdi-dots-vertical"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                                </div>
-                            </div>
-                            <h4 class="m-t-0 header-title">Basic example</h4>
-                            <p class="text-muted font-14 m-b-20">
-                                For basic styling—light padding and only horizontal dividers—add the base class <code>.table</code> to any <code>&lt;table&gt;</code>.
-                            </p>
-
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Código</th>
-                                    <th>Descrição</th>
-                                    <th>Status</th>
-                                    <th>Solicitante</th>
-                                    <th>Agente</th>
-                                    <th>Criado em</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                <div className="card-box">
+                    <div className="dropdown pull-right">
+                        <a href="#" className="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                            <i className="mdi mdi-dots-vertical"></i>
+                        </a>
+                        <div className="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0);" className="dropdown-item">Action</a>
+                            <a href="javascript:void(0);" className="dropdown-item">Another action</a>
+                            <a href="javascript:void(0);" className="dropdown-item">Something else</a>
+                            <a href="javascript:void(0);" className="dropdown-item">Separated link</a>
                         </div>
+                    </div>
+                    <h4 className="m-t-0 header-title">Basic example</h4>
+                    <p className="text-muted font-14 m-b-20">
+                        For basic styling—light padding and only horizontal dividers—add the base className <code>.table</code> to any <code>&lt;table&gt;</code>.
+                    </p>
+
+                    <table className="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Código</th>
+                            <th>Descrição</th>
+                            <th>Status</th>
+                            <th>Solicitante</th>
+                            <th>Agente</th>
+                            <th>Criado em</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        { list.map(ticket => (
+                            <tr key={ticket.id}>
+                                <th scope="row">{ ticket.id }</th>
+                                <td>{ ticket.code }</td>
+                                <td>{ ticket.description }</td>
+                                <td>{ ticket.ticket_status_id }</td>
+                                <td>{ ticket.caller }</td>
+                                <td>{ ticket.agent }</td>
+                                <td>{ ticket.created_at }</td>
+                                <td>
+                                    <button className="btn btn-icon waves-effect btn-default m-b-5"> <i className="fa fa-edit"></i> </button>
+                                    <button className="btn btn-icon waves-effect btn-danger m-b-5" onClick={ () => this.props.remove(ticket.id) }> <i className="fa fa-trash"></i> </button>
+                                </td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({ list: state.serviceReducer.list })
+const mapStateToProps = state => ({ list: state.ticketReducer.list })
 const mapDispatchToProps = dispatch => bindActionCreators({ search, remove }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Ticket)

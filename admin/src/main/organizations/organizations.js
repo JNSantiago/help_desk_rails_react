@@ -7,10 +7,6 @@ import Title from './../utils/title'
 import { search, remove } from './organizationActions'
 
 class Organization extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     componentWillMount() {
         this.props.search()
     }

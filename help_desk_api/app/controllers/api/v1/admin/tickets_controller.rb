@@ -4,7 +4,7 @@ class Api::V1::Admin::TicketsController < Api::V1::Admin::AdminController
 	end
 
 	def create
-		respond_with :api, :v1, Ticket.create(ticket_params)
+		respond_with :api, :v1, :admin, Ticket.create(ticket_params)
 	end
 
 	def destroy
@@ -21,7 +21,7 @@ class Api::V1::Admin::TicketsController < Api::V1::Admin::AdminController
 	def ticket_params
 		params.require(:ticket).permit(
 			:title, :description, :code, :close_date, :caller, :agent, 
-			:service_id, :sub_service_id, :organization_id, :status
+			:service_id, :sub_service_id, :organization_id, :status, :ticket_status_id
 		)
 	end
 end
