@@ -1,6 +1,7 @@
 class Api::V1::Admin::OrganizationsController < Api::V1::Admin::AdminController
 	def index
-		respond_with Organization.all
+		organizations = Organization.all.page(params[:page])
+		paginate json: organizations
 	end
 
 	def create

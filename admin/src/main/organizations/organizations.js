@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import ReactPaginate from 'react-paginate';
 
 import Title from './../utils/title'
 
@@ -8,7 +9,11 @@ import { search, remove } from './organizationActions'
 
 class Organization extends Component {
     componentWillMount() {
-        this.props.search()
+        this.props.search(1)
+    }
+
+    handlePageClick = (data) => {
+        this.props.search(data.selected + 1)
     }
 
     render() {
@@ -64,13 +69,24 @@ class Organization extends Component {
                         ))}
                         </tbody>
                     </table>
+                    <ReactPaginate previousLabel={"anterior"}
+                       nextLabel={"próximo"}
+                       breakLabel={<a href="">...</a>}
+                       breakClassName={"break-me"}
+                       pageCount={this.props.count / 5}
+                       marginPagesDisplayed={2}
+                       pageRangeDisplayed={5}
+                       onPageChange={this.handlePageClick}
+                       containerClassName={"pagination"}
+                       subContainerClassName={"pages pagination"}
+                       activeClassName={"active"} />
                 </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({ list: state.organizationReducer.list })
+const mapStateToProps = state => ({ list: state.organizationReducer.list, count: state.organizationReducer.count })
 const mapDispatchToProps = dispatch => bindActionCreators({ search, remove }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Organization)
