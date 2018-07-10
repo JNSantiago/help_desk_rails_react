@@ -1,6 +1,7 @@
 class Api::V1::Admin::SubServicesController < Api::V1::Admin::AdminController
 	def index
-		respond_with SubService.all
+		subservices = SubService.all
+		respond_with subservices.map{ |sub| sub.attributes.merge(service_name: sub.service.name) }
 	end
 
 	def create

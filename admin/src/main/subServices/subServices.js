@@ -56,7 +56,7 @@ class SubService extends Component {
                                         <th scope="row">{ sub_service.id }</th>
                                         <td>{ sub_service.name }</td>
                                         <td>{ sub_service.description }</td>
-                                        <td>{ sub_service.service_id }</td>
+                                        <td>{ sub_service.service_name }</td>
                                         <td>{ sub_service.status }</td>
                                         <td>{ sub_service.created_at }</td>
                                         <td>

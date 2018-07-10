@@ -57,9 +57,9 @@ class Ticket extends Component {
                                 <th scope="row">{ ticket.id }</th>
                                 <td>{ ticket.code }</td>
                                 <td>{ ticket.description }</td>
-                                <td>{ ticket.ticket_status_id }</td>
-                                <td>{ ticket.caller }</td>
-                                <td>{ ticket.agent }</td>
+                                <td>{ ticket.status }</td>
+                                <td>{ ticket.caller_name }</td>
+                                <td>{ ticket.agent_name }</td>
                                 <td>{ ticket.created_at }</td>
                                 <td>
                                     <button className="btn btn-icon waves-effect btn-default m-b-5"> <i className="fa fa-edit"></i> </button>
