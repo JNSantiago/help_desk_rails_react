@@ -1,7 +1,7 @@
 class Api::V1::Admin::SubServicesController < Api::V1::Admin::AdminController
 	def index
-		subservices = SubService.all
-		respond_with subservices.map{ |sub| sub.attributes.merge(service_name: sub.service.name) }
+		subservices = SubService.all.page(params[:page])
+		paginate json: subservices.map{ |sub| sub.attributes.merge(service_name: sub.service.name) }
 	end
 
 	def create

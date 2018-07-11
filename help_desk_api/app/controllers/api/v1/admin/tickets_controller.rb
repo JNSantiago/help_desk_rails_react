@@ -1,8 +1,7 @@
 class Api::V1::Admin::TicketsController < Api::V1::Admin::AdminController
 	def index
-		tickets = Ticket.all
-		render json: tickets.map {|ticket| ticket.attributes.merge({ status: ticket.ticket_status.description, caller_name: User.find(ticket.caller).email, agent_name: User.find(ticket.agent).email }) }
-		#respond_with Ticket.all, include: services
+		tickets = Ticket.all.page(params[:page])
+		paginate json: tickets.map {|ticket| ticket.attributes.merge({ status: ticket.ticket_status.description, caller_name: User.find(ticket.caller).email, agent_name: User.find(ticket.agent).email }) }
 	end
 
 	def create

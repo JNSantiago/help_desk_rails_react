@@ -3,8 +3,8 @@ import { toastr } from 'react-redux-toastr'
 
 import history from './../utils/history'
 
-export const search = () => {
-    const request = axios.get('http://localhost:3000/api/v1/admin/tickets.json')
+export const search = (page) => {
+    const request = axios.get(`http://localhost:3000/api/v1/admin/tickets?page=${page}`)
     return {
         type: 'TICKET_ALL',
         payload: request

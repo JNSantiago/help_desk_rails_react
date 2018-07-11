@@ -1,6 +1,7 @@
 class Api::V1::Admin::ServicesController < Api::V1::Admin::AdminController
 	def index
-		respond_with Service.all
+		services = Service.all.page(params[:page])
+		paginate json: services
 	end
 
 	def create

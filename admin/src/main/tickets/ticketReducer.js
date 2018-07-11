@@ -1,5 +1,6 @@
 const INITIAL_STATE = { 
     list: [],
+    count: '',
     listServices: [],
     listSubServices: [],
     listOrganizations: [],
@@ -9,7 +10,7 @@ const INITIAL_STATE = {
 export const ticketReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'TICKET_ALL':
-            return { ...state, list: action.payload.data }
+            return { ...state, list: action.payload.data, count: action.payload.headers.total }
         case 'TICKET_SERVICE_ALL':
             return { ...state, listServices: action.payload.data }
         case 'TICKET_SUB_SERVICE_ALL':

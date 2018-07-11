@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import ReactPaginate from 'react-paginate';
+import ReactPaginate from 'react-paginate'
 
 import Title from './../utils/title'
 

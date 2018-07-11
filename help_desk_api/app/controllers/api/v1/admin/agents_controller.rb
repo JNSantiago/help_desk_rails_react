@@ -1,5 +1,5 @@
 class Api::V1::Admin::AgentsController < Api::V1::Admin::AdminController
 	def index
-		respond_with User.all
+		paginate json: User.all.page(params[:page])
 	end
 end

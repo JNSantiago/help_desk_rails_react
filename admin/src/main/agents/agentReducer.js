@@ -1,11 +1,12 @@
 const INITIAL_STATE = { 
-    list: [] 
+    list: [],
+    count: '' 
 }
 
 export const agentReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'AGENT_ALL':
-            return { ...state, list: action.payload.data }
+            return { ...state, list: action.payload.data, count: action.payload.headers.total }
         default:
             return state;
     }
